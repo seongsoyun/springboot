@@ -119,6 +119,21 @@ public class BoardController {
 		
 	}
 	
+	@GetMapping("/detail/{id}") // {} url의 변수
+	   public String detail(@PathVariable Long id, Model model) { // url의 변수 가지고 오는 법
+	      
+	      System.out.println(id);
+	      // id를 바탕으로 select 진행
+	      // 게시글의 상세 정보 출력
+	      
+	      //db접근 --> service 객체 기능 구현
+	      Optional<BoardEntity> entity = boardService.detail(id);
+	      
+	      model.addAttribute("detail", entity.get());
+	      
+	      return "detail";
+	   }
+	
 	// 게시글 수정 페이지 이동
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
