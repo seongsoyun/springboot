@@ -112,7 +112,7 @@ public class BoardController {
 		if(result != null) {
 			//성공
 			// 글이 작성이 될시 index페이지로 이동
-			return "redirct:/";
+			return "redirect:/";
 		}else {
 			return "redirect:/board/write";
 		}
